@@ -4,6 +4,15 @@
 >
 > **Promise:** By the end you will be able to (1) version code with Git + GitHub, (2) ship CI/CD with GitHub Actions, (3) pair with GitHub Copilot at every layer, (4) talk to LLMs from Python, (5) build a RAG pipeline over your own documents, (6) build single and multi-agent systems with LangChain / LangGraph / CrewAI, and (7) ship a production agent to Kubernetes — with GHAS security on top.
 
+!!! success "📦 One repo, three tracks — everything lives here"
+    This is the **single source of truth** for all the content. Python, GenAI/Agents, **and** Git/GitHub/Copilot/GHAS are merged into one repository: **[mail2raji/genai-agentic-ai-handbook](https://github.com/mail2raji/genai-agentic-ai-handbook)**.
+
+    - 🐍 **Python + GenAI + Agents** → Part I Phases 1–7 (+ Capstones + Production)
+    - 🛠️ **Git + GitHub + Actions + Copilot + GHAS** → Part I Phases 8–18
+    - 📚 **Concept curriculum** (5 modules) → Part II
+
+    `git clone https://github.com/mail2raji/genai-agentic-ai-handbook.git` gives you the whole library — code samples, exercises, capstones, the MkDocs source for this site, and the workflows that build it.
+
 ---
 
 ## 📚 The book has **two tracks** — pick the one that fits how you learn

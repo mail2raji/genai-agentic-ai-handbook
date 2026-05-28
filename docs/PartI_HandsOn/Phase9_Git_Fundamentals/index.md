@@ -1,35 +1,42 @@
-# Phase 1 — Git Fundamentals
+# Phase 9 — Git Fundamentals
 
 > **Goal:** be unbreakable at solo Git workflows — init, commit, branch, merge, undo — using the "three trees" model.
 
-Companion to Chapter 1 in [BOOK.md](../index.md). Do every drill here before moving to GitHub multi-person workflows.
+!!! tip "The Lab Pack is where the real learning happens"
+    Jump straight to **[🧪 Phase 9 Lab Pack](exercises.md)** — 12 scenario-driven labs + a 60-minute capstone, every command explained line-by-line.
 
-## Mental model
+---
 
-```
+## Mental model — the three trees
+
+```text
 working dir   <--  git checkout/restore  --  staging  <-- git reset --  HEAD (last commit)
 working dir   --  git add  -->  staging   --  git commit  -->  HEAD
 ```
 
 Memorize these three states. Every Git command moves a file between them.
 
-## 8 hands-on exercises
+## 🧭 What you'll master (12 labs)
 
-| # | Exercise | What it teaches |
+| # | Skill | One-liner |
 |---|---|---|
-| 1 | `git init` a `rag-notes` repo, commit a README | Bootstrap |
-| 2 | Stage selective hunks with `git add -p` | Staging granularity |
-| 3 | Rename `notes.md` → `chapter1.md` with `git mv` | History preservation |
-| 4 | Create `feat/embedding`, commit, merge into `main` | Branching |
-| 5 | Force a conflict by editing the same line on both branches; resolve | Merge conflicts |
-| 6 | Use `git stash` to park a half-done feature; restore | Context switching |
-| 7 | Amend the last commit message with `git commit --amend` | History rewrite (safe) |
-| 8 | Use `git reflog` to recover a commit you "lost" with `git reset --hard` | Safety net |
-
-## Mini quiz answers
-
-Answers to the 10-question Chapter 1 quiz are in [exercises.md](exercises.md).
+| 1 | Bootstrap | `git init` a `rag-notes` repo with sane defaults |
+| 2 | Selective staging | Split one messy edit into two clean commits with `git add -p` |
+| 3 | Rename without losing history | `git mv` + `git log --follow` |
+| 4 | Feature branches | `git switch -c`, fast-forward vs `--no-ff` |
+| 5 | Real merge conflicts | Force one, then resolve like a pro |
+| 6 | Stash | Park work for a hotfix, then resume |
+| 7 | Amend vs Revert | Local fix vs published-history fix |
+| 8 | `git reflog` rescue | Recover a "lost" commit after `reset --hard` |
+| 9 | Python+AI `.gitignore` | Ignore `__pycache__`, `.env`, vector DBs, models |
+| 10 | Semantic tags | `git tag -a v0.1.0` with SemVer rules |
+| 11 | Cherry-pick | Backport one hotfix across branches |
+| 12 | Interactive rebase | Squash 5 WIP commits into 1 reviewable commit |
+| 🏁 | **Capstone** | A simulated week-in-the-life: bootstrap → feature → interruption → conflict → release |
 
 ## Next
 
-[Phase 2 — GitHub Basics](../Phase10_GitHub_Basics/index.md).
+➡️ Start the **[🧪 Lab Pack](exercises.md)**.
+
+Then continue to **[Phase 10 — GitHub Basics](../Phase10_GitHub_Basics/index.md)**.
+
