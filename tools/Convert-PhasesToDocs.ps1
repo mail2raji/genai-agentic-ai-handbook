@@ -1,7 +1,7 @@
 <#
 .SYNOPSIS
     Mirror the 7-Phase hands-on curriculum (../PythonGenAI_Learning) into
-    docs/PartII_HandsOn/ as renderable MkDocs pages.
+    docs/PartI_HandsOn/ as renderable MkDocs pages.
 
 .DESCRIPTION
     Every .py file is wrapped in a Markdown page (title + source code block).
@@ -9,8 +9,8 @@
     Phase 7 capstone_production_agent/ is rendered as one combined page with
     all sub-files (Python / Dockerfile / k8s YAML) in fenced blocks.
 
-    Also emits docs/PartII_HandsOn/_nav.yml — a YAML fragment ready to paste
-    into mkdocs.yml under the "Part II — Hands-On Code Lessons" section.
+    Also emits docs/PartI_HandsOn/_nav.yml — a YAML fragment ready to paste
+    into mkdocs.yml under the "Part I — Hands-On Code Lessons" section.
 
 .NOTES
     Idempotent. Safe to re-run after editing source .py files.
@@ -19,13 +19,13 @@
 [CmdletBinding()]
 param(
     [string]$SourceRoot = (Join-Path $PSScriptRoot '..\..\PythonGenAI_Learning'),
-    [string]$DocsRoot   = (Join-Path $PSScriptRoot '..\docs\PartII_HandsOn')
+    [string]$DocsRoot   = (Join-Path $PSScriptRoot '..\docs\PartI_HandsOn')
 )
 
 $ErrorActionPreference = 'Stop'
 $SourceRoot = (Resolve-Path $SourceRoot).Path
 $DocsRoot   = (Resolve-Path -LiteralPath (Split-Path $DocsRoot -Parent)).Path
-$DocsRoot   = Join-Path $DocsRoot 'PartII_HandsOn'
+$DocsRoot   = Join-Path $DocsRoot 'PartI_HandsOn'
 
 Write-Host "Source : $SourceRoot" -ForegroundColor Cyan
 Write-Host "Target : $DocsRoot"   -ForegroundColor Cyan
@@ -126,7 +126,7 @@ function Convert-PyToMd {
 !!! info "Runnable source file"
     **Path:** ``$relSrc``  
     **Phase:** $PhaseLabel  
-    Copy this into a ``.py`` file (or clone the [companion repo](https://github.com/mail2raji/python-genai-agentic-handbook)) and run it locally.
+    Copy this into a ``.py`` file (or clone the [companion repo](https://github.com/mail2raji/genai-agentic-ai-handbook)) and run it locally.
 
 ``````python
 $code
@@ -147,7 +147,7 @@ function Copy-MdRewriteLinks {
     $c = $c -replace '\(SUMMARY\.md\)', '(index.md)'
     $c = $c -replace '\(README\.md\)', '(index.md)'
     # project assets that aren't part of the rendered book → link to source repo
-    $repoRaw = 'https://github.com/mail2raji/python-genai-agentic-handbook/blob/main/PythonGenAI_Learning'
+    $repoRaw = 'https://github.com/mail2raji/genai-agentic-ai-handbook/blob/main/PythonGenAI_Learning'
     $c = $c -replace '\(requirements\.txt\)', "($repoRaw/requirements.txt)"
     $c = $c -replace '\(\.env\.example\)', "($repoRaw/.env.example)"
     Set-Content -LiteralPath $DstMd -Value $c -Encoding UTF8
@@ -167,10 +167,10 @@ $phases = [ordered]@{
 
 # nav fragment builder
 $navLines = [System.Collections.Generic.List[string]]::new()
-$navLines.Add('  - "Part II — Hands-On Code Lessons":')
-$navLines.Add('      - "Part II overview": PartII_HandsOn/index.md')
-$navLines.Add('      - "🧪 Lab menu":      PartII_HandsOn/LAB_MENU.md')
-$navLines.Add('      - "⚙️ Quickstart":    PartII_HandsOn/QUICKSTART.md')
+$navLines.Add('  - "Part I — Hands-On Code Lessons":')
+$navLines.Add('      - "Part I overview": PartI_HandsOn/index.md')
+$navLines.Add('      - "🧪 Lab menu":      PartI_HandsOn/LAB_MENU.md')
+$navLines.Add('      - "⚙️ Quickstart":    PartI_HandsOn/QUICKSTART.md')
 
 # preferred ordering inside each phase
 function Get-PhaseOrderKey {
@@ -204,12 +204,12 @@ foreach ($phaseKey in $phases.Keys) {
         if ($ext -eq '.py') {
             $dst = Join-Path $dstPhase ($base + '.md')
             Convert-PyToMd -PyPath $_.FullName -MdPath $dst -PhaseLabel $phaseLabel
-            $entries += [pscustomobject]@{ Sort = (Get-PhaseOrderKey $base); Label = (Format-NavLabel $base); Path = "PartII_HandsOn/$phaseKey/$base.md" }
+            $entries += [pscustomobject]@{ Sort = (Get-PhaseOrderKey $base); Label = (Format-NavLabel $base); Path = "PartI_HandsOn/$phaseKey/$base.md" }
         }
         elseif ($ext -eq '.md') {
             $dst = Join-Path $dstPhase $_.Name
             Copy-MdRewriteLinks -SrcMd $_.FullName -DstMd $dst
-            $entries += [pscustomobject]@{ Sort = (Get-PhaseOrderKey $base); Label = (Format-NavLabel $base); Path = "PartII_HandsOn/$phaseKey/$($_.Name)" }
+            $entries += [pscustomobject]@{ Sort = (Get-PhaseOrderKey $base); Label = (Format-NavLabel $base); Path = "PartI_HandsOn/$phaseKey/$($_.Name)" }
         }
     }
 
@@ -243,7 +243,7 @@ foreach ($phaseKey in $phases.Keys) {
             $null = $sb.AppendLine('')
         }
         Set-Content -LiteralPath $dstCapMd -Value $sb.ToString() -Encoding UTF8
-        $entries += [pscustomobject]@{ Sort = '95'; Label = '🏆 Final Capstone — Production SPN Agent'; Path = "PartII_HandsOn/$phaseKey/capstone_production_agent.md" }
+        $entries += [pscustomobject]@{ Sort = '95'; Label = '🏆 Final Capstone — Production SPN Agent'; Path = "PartI_HandsOn/$phaseKey/capstone_production_agent.md" }
     }
 
     # emit nav entries for this phase, sorted
@@ -254,7 +254,7 @@ foreach ($phaseKey in $phases.Keys) {
 
 # ---------- root-level supporting docs ---------------------------------------
 
-# Convert HANDBOOK.md → docs/PartII_HandsOn/index.md (with .py→.md link rewrites and path prefix unchanged)
+# Convert HANDBOOK.md → docs/PartI_HandsOn/index.md (with .py→.md link rewrites and path prefix unchanged)
 $handbook = Join-Path $SourceRoot 'HANDBOOK.md'
 if (Test-Path $handbook) {
     Copy-MdRewriteLinks -SrcMd $handbook -DstMd (Join-Path $DocsRoot 'index.md')
@@ -268,7 +268,7 @@ foreach ($file in 'LAB_MENU.md','QUICKSTART.md','CONTRIBUTING.md') {
 }
 
 # write the nav fragment (outside docs/ so MkDocs doesn't ship it)
-$navFile = Join-Path $PSScriptRoot '_nav_PartII.yml'
+$navFile = Join-Path $PSScriptRoot '_nav_PartI.yml'
 $navLines | Set-Content -LiteralPath $navFile -Encoding UTF8
 
 Write-Host "`nDone." -ForegroundColor Green

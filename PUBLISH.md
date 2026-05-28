@@ -2,7 +2,7 @@
 
 This folder is already wired up to publish as a Material-themed online book at:
 
-> **https://mail2raji.github.io/python-genai-agentic-handbook/**
+> **https://mail2raji.github.io/genai-agentic-ai-handbook/**
 
 The book is built with **[MkDocs Material](https://squidfunk.github.io/mkdocs-material/)** and auto-deployed by **GitHub Actions** whenever you push to `main`.
 
@@ -10,7 +10,7 @@ The book is built with **[MkDocs Material](https://squidfunk.github.io/mkdocs-ma
 
 ## 🧭 What you'll do (one-time setup)
 
-1. Push these files to the empty repo `python-genai-agentic-handbook`.
+1. Push these files to the empty repo `genai-agentic-ai-handbook`.
 2. Enable GitHub Pages → "GitHub Actions" as the source.
 3. Push commits → site rebuilds & redeploys automatically.
 
@@ -29,7 +29,7 @@ git add .
 git commit -m "Initial commit: GenAI & Agentic AI curriculum"
 
 # 3. Wire it to the GitHub repo
-git remote add origin https://github.com/mail2raji/python-genai-agentic-handbook.git
+git remote add origin https://github.com/mail2raji/genai-agentic-ai-handbook.git
 
 # 4. Push (force the first time if the repo already has a default README)
 git push -u origin main --force
@@ -54,7 +54,7 @@ That's it. The first deploy starts the moment you pushed in Step 1.
 1. Go to the **Actions** tab on GitHub.
 2. You'll see a workflow run named *"Deploy book to GitHub Pages"*.
 3. After ~1–2 minutes both jobs (`build` ▸ `deploy`) turn green.
-4. Open: <https://mail2raji.github.io/python-genai-agentic-handbook/> 🎉
+4. Open: <https://mail2raji.github.io/genai-agentic-ai-handbook/> 🎉
 
 ---
 

@@ -1,6 +1,6 @@
 # 📖 GenAI & Agentic AI Handbook
 
-> **Read it online → <https://mail2raji.github.io/python-genai-agentic-handbook/>**
+> **Read it online → <https://mail2raji.github.io/genai-agentic-ai-handbook/>**
 
 A beginner-to-advanced curriculum that takes you from *"what is an LLM?"* all the way to building multi-agent systems with **LangChain, LangGraph and CrewAI**.
 

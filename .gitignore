@@ -27,3 +27,6 @@ venv/
 .mypy_cache/
 .pytest_cache/
 .ruff_cache/
+
+# Export output (PDF / DOCX)
+_export/
