@@ -30,3 +30,6 @@ venv/
 
 # Export output (PDF / DOCX)
 _export/
+
+# Local artifact verification dir
+_verify/
