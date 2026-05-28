@@ -1,9 +1,24 @@
 # 📖 Curriculum overview — the 23-chapter single flow
 
-> *A hands-on book that takes you from your first line of Python to a production-ready agent on Kubernetes — and the GitHub + Copilot + GHAS toolchain you'll use to ship it.*
+<p align="center" markdown>
+  <em>A hands-on book that takes you from your first line of Python to a production-ready agent on Kubernetes — and the GitHub + Copilot + GHAS toolchain you'll use to ship it.</em>
+</p>
+
+<p align="center" markdown>
+  ![Chapters](https://img.shields.io/badge/chapters-23-6f42c1?style=for-the-badge)
+  ![Stages](https://img.shields.io/badge/stages-6-blue?style=for-the-badge)
+  ![Labs](https://img.shields.io/badge/labs-67%2B-success?style=for-the-badge)
+  ![Capstones](https://img.shields.io/badge/capstones-5-orange?style=for-the-badge)
+</p>
+
+<p align="center" markdown>
+[:material-rocket-launch: &nbsp; Quickstart](QUICKSTART.md){ .md-button .md-button--primary }
+[:material-flask: &nbsp; Lab Menu](LAB_MENU.md){ .md-button }
+[:material-book-open-variant: &nbsp; Open Chapter 1](Chapter01_Python_Fundamentals/00_START_HERE.md){ .md-button }
+</p>
 
 This is the **table of contents** for the entire curriculum.
-Every chapter is a clickable lesson set with concept → analogy → annotated code → exercises → solutions.
+Every chapter is a clickable lesson set with **concept → analogy → annotated code → exercises → solutions**.
 
 When you're ready to **do** rather than read, jump to **[`LAB_MENU.md`](LAB_MENU.md)** — every hands-on exercise in the book, in one checklist.
 
@@ -16,8 +31,8 @@ When you're ready to **do** rather than read, jump to **[`LAB_MENU.md`](LAB_MENU
 3. After each chapter, do its corresponding lab in [`LAB_MENU.md`](LAB_MENU.md).
 4. Tick the box ✅. Move on to the next chapter.
 
-> 💡 Most Python lessons run **offline** in `MOCK_MODE=1` — no API key required.
-> Add a real OpenAI / Azure OpenAI key in `.env` only when you want real-LLM output.
+!!! tip "Most Python lessons run **offline** in `MOCK_MODE=1`"
+    No API key required. Add a real OpenAI / Azure OpenAI key in `.env` only when you want real-LLM output.
 
 ---
 

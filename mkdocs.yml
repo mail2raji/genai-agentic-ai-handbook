@@ -9,6 +9,9 @@ edit_uri: edit/main/
 docs_dir: docs
 site_dir: _site
 
+extra_css:
+  - stylesheets/extra.css
+
 theme:
   name: material
   language: en
